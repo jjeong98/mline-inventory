@@ -18,7 +18,7 @@ export const Navigation = () => {
           <Link to="/main">홈</Link>
         </li>
         <li className="nav-item">
-          <Link to="/project">프로젝트 정보</Link>
+          <Link to="/project">프로젝트 목록</Link>
         </li>
         {isAdmin && (
           <>

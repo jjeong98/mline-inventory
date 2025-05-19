@@ -1,6 +1,7 @@
 // src/components/Login/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import './Login.css';
 
 const Login = () => {
@@ -9,11 +10,12 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleAccountSelect = (type) => {
     setAccountType(type);
     if (type === 'general') {
-      localStorage.setItem('isAdmin', 'false');
+      login('user');
       navigate('/main');
     }
   };
@@ -21,7 +23,7 @@ const Login = () => {
   const handleAdminLogin = (e) => {
     e.preventDefault();
     if (password === 'mline0908') {
-      localStorage.setItem('isAdmin', 'true');
+      login('admin');
       navigate('/main');
     } else {
       setPasswordError('비밀번호가 일치하지 않습니다.');

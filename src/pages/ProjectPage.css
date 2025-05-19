@@ -112,6 +112,9 @@
   margin-bottom: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .project-item:hover {
@@ -125,9 +128,11 @@
 }
 
 .project-item h3 {
-  margin: 0 0 8px 0;
+  margin: 0;
   font-size: 1.1rem;
   color: #333;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .project-item-info {
@@ -135,6 +140,34 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.9rem;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.project-item-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.edit-button:hover {
+  background-color: #1976D2;
+}
+
+.edit-button:active {
+  transform: translateY(1px);
 }
 
 .project-detail {
@@ -285,6 +318,8 @@
 
 .form-group {
   margin-bottom: 16px;
+  position: relative;
+  max-width: 600px; /* 상태 선택 창과 동일한 너비로 제한 */
 }
 
 .form-group label {
@@ -292,6 +327,7 @@
   margin-bottom: 8px;
   color: #666;
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .form-group input,
@@ -301,6 +337,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  transition: all 0.2s;
   box-sizing: border-box;
 }
 
@@ -309,6 +346,68 @@
   outline: none;
   border-color: #2196f3;
   box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.form-group input[type="date"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: all 0.2s;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E") no-repeat right 8px center;
+  background-size: 20px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.form-group input[type="date"]:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+/* Firefox에서의 날짜 입력 필드 스타일 */
+.form-group input[type="date"]::-moz-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* IE/Edge에서의 날짜 입력 필드 스타일 */
+.form-group input[type="date"]::-ms-clear {
+  display: none;
+}
+
+.form-group input[type="date"]::-ms-reveal {
+  display: none;
+}
+
+/* 날짜 입력 필드 호버 효과 */
+.form-group input[type="date"]:hover {
+  border-color: #2196f3;
 }
 
 .form-section {
@@ -350,28 +449,23 @@
 }
 
 .form-actions button[type="button"] {
-  background-color: #f5f5f5;
-  color: #666;
-  border: 1px solid #ddd;
-}
-
-.form-actions button[type="button"]:hover {
-  background-color: #e0e0e0;
-}
-
-button[type="button"] {
-  background-color: #f5f5f5;
-  color: #666;
-  border: 1px solid #ddd;
-  padding: 8px 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 16px;
   border-radius: 4px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  font-size: 0.9rem;
 }
 
-button[type="button"]:hover {
-  background-color: #e0e0e0;
+.form-actions button[type="button"]:hover {
+  background-color: #1976d2;
+}
+
+.form-actions button[type="button"]:active {
+  transform: translateY(1px);
 }
 
 /* Webkit 브라우저용 스크롤바 스타일링 */
@@ -410,4 +504,119 @@ button[type="button"]:hover {
 .modal-content {
   scrollbar-width: thin;
   scrollbar-color: #2196F3 #f5f5f5;
+}
+
+/* 추가된 항목 리스트 스타일 */
+.added-items-list {
+  margin-top: 16px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.added-items-list h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.added-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 8px;
+}
+
+.added-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-info strong {
+  display: block;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.item-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.delete-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+.delete-confirm-modal {
+  max-width: 400px;
+  text-align: center;
+}
+
+.delete-confirm-modal p {
+  margin: 16px 0;
+  color: #333;
+}
+
+.warning-text {
+  color: #ff4444 !important;
+  font-weight: 500;
+}
+
+.delete-confirm-button {
+  background-color: #ff4444 !important;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-confirm-button:hover {
+  background-color: #cc0000 !important;
+}
+
+.project-item-actions .delete-button {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.project-item-actions .delete-button:hover {
+  background-color: #cc0000;
+}
+
+/* 콘텐츠와 하드웨어 섹션의 입력 필드는 더 넓게 */
+.form-section .form-group {
+  max-width: 100%;
+}
+
+.form-section .form-group input[type="text"],
+.form-section .form-group input[type="number"] {
+  width: 100%;
 } 
