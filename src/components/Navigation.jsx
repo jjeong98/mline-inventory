@@ -1,44 +1,33 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Navigation.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import "./Navigation.css";
 
-export const Navigation = () => {
+function Navigation() {
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   const handleLogout = () => {
-    localStorage.removeItem('isAdmin');
-    navigate('/');
+    logout();
+    navigate("/login");
   };
 
+  if (!user) return null;
+
   return (
-    <nav className="nav">
-      <ul className="nav-list">
-        <li className="nav-item">
-          <Link to="/main">홈</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/project">프로젝트 목록</Link>
-        </li>
-        {isAdmin && (
-          <>
-            <li className="nav-item">
-              <Link to="/admin/users">사용자 관리</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/admin/settings">시스템 설정</Link>
-            </li>
-          </>
-        )}
-        <span className="user-info">
-          {isAdmin ? '관리자' : '일반 사용자'}
-        </span>
-        <li className="nav-item">
-          <button className="logout-button" onClick={handleLogout}>
-            로그아웃
-          </button>
-        </li>
-      </ul>
+    <nav className="navigation">
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          프로젝트 목록
+        </Link>
+        <Link to="/projects/new" className="nav-link">
+          새 프로젝트
+        </Link>
+        <button onClick={handleLogout} className="nav-link logout-button">
+          로그아웃
+        </button>
+      </div>
     </nav>
   );
-}; 
+}
+
+export default Navigation; 

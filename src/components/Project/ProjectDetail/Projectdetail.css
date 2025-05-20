@@ -1,0 +1,128 @@
+.project-detail-container {
+  padding: 24px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.project-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.project-detail-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.project-detail-status {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-completed {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-pending {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.project-detail-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.project-detail-section {
+  margin-bottom: 24px;
+}
+
+.project-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-detail-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px;
+}
+
+.project-detail-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.project-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.project-detail-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.project-detail-value {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.project-detail-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.project-detail-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-button {
+  background-color: #1976d2;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #1565c0;
+}
+
+.delete-button {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c62828;
+}
