@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
-    } else if (username === "user" && password === "user123") {
+    } else if (username === "user" && password === "user") {
       const userData = {
         id: 2,
         username: "user",

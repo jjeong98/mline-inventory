@@ -21,3 +21,35 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 환경 변수
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# 로그
+*.log
+logs/
+
+# 빌드
+dist/
+build/
+
+# 시스템
+.DS_Store
+Thumbs.db
+
+# 인증서
+*.pem
+*.key
+*.crt
+*.cert
+
+# 기타
+config.json
+secrets.json
+credentials.json

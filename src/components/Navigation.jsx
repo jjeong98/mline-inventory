@@ -19,9 +19,6 @@ function Navigation() {
         <Link to="/" className="nav-link">
           프로젝트 목록
         </Link>
-        <Link to="/projects/new" className="nav-link">
-          새 프로젝트
-        </Link>
         <button onClick={handleLogout} className="nav-link logout-button">
           로그아웃
         </button>
